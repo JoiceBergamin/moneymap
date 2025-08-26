@@ -48,6 +48,10 @@ public class Lancamento {
     @JoinColumn(name = "conta")
     private Conta conta;
 
+    @ManyToOne
+    @JoinColumn(name = "banco")
+    private Banco banco;
+
     @Enumerated(EnumType.ORDINAL)
     @JoinColumn(name="tipolancamento")
     private TipoLancamento tipoLancamento;
@@ -59,7 +63,7 @@ public class Lancamento {
     public Lancamento() {
     }
 
-    public Lancamento(int id, String descricao, String parcela, LocalDate dataLancamento, LocalDate dataVencimento, LocalDate dataBaixa, Double valorDocumento, CentroCusto centroCusto, Pessoa pessoa, Conta conta, TipoLancamento tipoLancamento, Situacao situacao) {
+    public Lancamento(int id, String descricao, String parcela, LocalDate dataLancamento, LocalDate dataVencimento, LocalDate dataBaixa, Double valorDocumento, CentroCusto centroCusto, Pessoa pessoa, Conta conta, Banco banco, TipoLancamento tipoLancamento, Situacao situacao) {
         this.id = id;
         this.descricao = descricao;
         this.parcela = parcela;
@@ -70,6 +74,7 @@ public class Lancamento {
         this.centroCusto = centroCusto;
         this.pessoa = pessoa;
         this.conta = conta;
+        this.banco = banco;
         this.tipoLancamento = tipoLancamento;
         this.situacao = situacao;
     }
@@ -152,6 +157,14 @@ public class Lancamento {
 
     public void setConta(Conta conta) {
         this.conta = conta;
+    }
+
+    public Banco getBanco() {
+        return banco;
+    }
+
+    public void setBanco(Banco banco) {
+        this.banco = banco;
     }
 
     public TipoLancamento getTipoLancamento() {
