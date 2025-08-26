@@ -1,0 +1,31 @@
+
+# MoneyMap
+Welcome to MoneyMap! :3
+## Objetivos
+
+O objetivo principal do aplicativo é construir um software simples de gestão financeira pessoal nas aulas de Laboratório de Programação
+## Tecnologias Utilizadas
+
+* Linguagens: Java
+* Frameworks: SpringBoot
+* Banco de Dados: PostgreSQL e H2 (teste)
+
+## Time de Desenvolvimento
+Joice de Andrade Bergamin
+
+[![GitHubs](https://img.shields.io/badge/GitHub-000?style=for-the-badge&logo=ko-fi&logoColor=white)](https://github.com/JoiceBergamin)
+[![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/joice-bergamin/)
+
+Pedro Henrique Esteves
+
+[![GitHubs](https://img.shields.io/badge/GitHub-000?style=for-the-badge&logo=ko-fi&logoColor=white)](https://github.com/PedroHrEs)
+## Contribuições
+
+26/08/2025 - Estamos na fase inicial do projeto por enquanto, entendendo melhor o que faremos em cada parte, até o momento já foram criadas as entidades e enums do projeto, já adicionando anotações na mesma para facilitar o processo
+
+
+## Considerações Finais
+
+Finalizando por aqui, podemos dizer que foi particularmente difícil e por muitas vezes recorremos a consultas, pesquisas e exemplos para tentarmos entender um pouco da construção do sistema.
+
+Consideramos que foi uma experiência desafiadora, mas que nos fez trabalhar mais em equipe e procurar formas de resolver o problema, sabemos que temos muito a melhorar, mas por hora estamos felizes de ter finalizado o projeto.
