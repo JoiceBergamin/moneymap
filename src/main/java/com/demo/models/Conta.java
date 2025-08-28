@@ -38,7 +38,7 @@ public class Conta {
     private Double saldo;
 
     @JsonIgnore
-    @OneToMany(mappedBy = "bancos")
+    @ManyToOne
     private Banco banco;
 
     public Conta() {
