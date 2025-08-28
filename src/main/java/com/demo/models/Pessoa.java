@@ -1,8 +1,11 @@
 package com.demo.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -15,6 +18,10 @@ public class Pessoa {
 
     @NotNull
     private String razaoSocial;
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "pessoa")
+    private List<Lancamento> lancamentos = new ArrayList<>();
 
     public Pessoa() {
     }
@@ -38,6 +45,14 @@ public class Pessoa {
 
     public void setRazaoSocial(String razaoSocial) {
         this.razaoSocial = razaoSocial;
+    }
+
+    public List<Lancamento> getLancamentos() {
+        return lancamentos;
+    }
+
+    public void setLancamentos(List<Lancamento> lancamentos) {
+        this.lancamentos = lancamentos;
     }
 
     @Override

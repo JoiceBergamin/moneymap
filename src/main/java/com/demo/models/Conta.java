@@ -41,10 +41,14 @@ public class Conta {
     @JoinColumn(name = "idBanco")
     private Banco banco;
 
+    @JsonIgnore
+    @OneToMany(mappedBy = "conta")
+    private List<Lancamento> lancamentos = new ArrayList<>();
+
     public Conta() {
     }
 
-    public Conta(int id, String descricao, TipoConta tipoConta, String agencia, String numero, Double limite, Double saldo) {
+    public Conta(int id, String descricao, TipoConta tipoConta, String agencia, String numero, Double limite, Double saldo, Banco banco) {
         this.id = id;
         this.descricao = descricao;
         this.tipoConta = tipoConta;
@@ -52,6 +56,7 @@ public class Conta {
         this.numero = numero;
         this.limite = limite;
         this.saldo = saldo;
+        this.banco = banco;
     }
 
     public int getId() {
@@ -108,6 +113,22 @@ public class Conta {
 
     public void setSaldo(Double saldo) {
         this.saldo = saldo;
+    }
+
+    public Banco getBanco() {
+        return banco;
+    }
+
+    public void setBanco(Banco banco) {
+        this.banco = banco;
+    }
+
+    public List<Lancamento> getLancamentos() {
+        return lancamentos;
+    }
+
+    public void setLancamentos(List<Lancamento> lancamentos) {
+        this.lancamentos = lancamentos;
     }
 
     @Override
