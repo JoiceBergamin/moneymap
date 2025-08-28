@@ -37,8 +37,8 @@ public class Conta {
     @NotNull
     private Double saldo;
 
-    @JsonIgnore
     @ManyToOne
+    @JoinColumn(name = "idBanco")
     private Banco banco;
 
     public Conta() {

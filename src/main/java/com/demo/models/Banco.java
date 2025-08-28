@@ -1,9 +1,12 @@
 package com.demo.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -17,6 +20,10 @@ public class Banco {
     @NotNull @NotBlank
     private String razaoSocial;
 
+    @JsonIgnore
+    @OneToMany(mappedBy = "banco")
+    private List<Conta> contas = new ArrayList<>();
+
     public Banco() {
     }
 
@@ -24,6 +31,7 @@ public class Banco {
         this.id = id;
         this.razaoSocial = razaoSocial;
     }
+
 
     public @NotNull @NotBlank String getRazaoSocial() {
         return razaoSocial;
@@ -39,6 +47,13 @@ public class Banco {
 
     public void setId(int id) {
         this.id = id;
+    }
+    public List<Conta> getContas() {
+        return contas;
+    }
+
+    public void setContas(List<Conta> contas) {
+        this.contas = contas;
     }
 
     @Override
