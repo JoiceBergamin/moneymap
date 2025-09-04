@@ -14,7 +14,7 @@ public class Pessoa {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_pessoas")
-    private int id;
+    private Integer id;
 
     @NotNull
     private String razaoSocial;
@@ -26,16 +26,16 @@ public class Pessoa {
     public Pessoa() {
     }
 
-    public Pessoa(int id, String razaoSocial) {
+    public Pessoa(Integer id, String razaoSocial) {
         this.id = id;
         this.razaoSocial = razaoSocial;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

@@ -14,7 +14,7 @@ public class CentroCusto {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_centrocusto")
-    private int id;
+    private Integer id;
 
     @NotNull
     private String descricao;
@@ -26,16 +26,16 @@ public class CentroCusto {
     public CentroCusto() {
     }
 
-    public CentroCusto(int id, String descricao) {
+    public CentroCusto(Integer id, String descricao) {
         this.id = id;
         this.descricao = descricao;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

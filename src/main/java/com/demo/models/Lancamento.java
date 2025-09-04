@@ -16,7 +16,7 @@ public class Lancamento {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_lancamentos")
-    private int id;
+    private Integer id;
 
     @NotNull @NotBlank
     private String descricao;
@@ -59,7 +59,7 @@ public class Lancamento {
     public Lancamento() {
     }
 
-    public Lancamento(int id, String descricao, String parcela, LocalDate dataLancamento, LocalDate dataVencimento, LocalDate dataBaixa, Double valorDocumento, CentroCusto centroCusto, Pessoa pessoa, Conta conta, TipoLancamento tipoLancamento, Situacao situacao) {
+    public Lancamento(Integer id, String descricao, String parcela, LocalDate dataLancamento, LocalDate dataVencimento, LocalDate dataBaixa, Double valorDocumento, CentroCusto centroCusto, Pessoa pessoa, Conta conta, TipoLancamento tipoLancamento, Situacao situacao) {
         this.id = id;
         this.descricao = descricao;
         this.parcela = parcela;
@@ -74,11 +74,11 @@ public class Lancamento {
         this.situacao = situacao;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

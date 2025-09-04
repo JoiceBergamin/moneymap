@@ -25,13 +25,13 @@ public class DBService {
     private LancamentoRepository lancamentoRepo;
 
     public void initDB(){
-        Pessoa pessoa01 = new Pessoa(0, "Fornecedor ABC");
-        CentroCusto centroCusto01 = new CentroCusto(0, "Manutenção");
-        Banco banco01 = new Banco(0, "Banco do Brasil");
-        Conta conta01 = new Conta(0, "Conta Principal", TipoConta.POUPANCA, "1234", "5678-9", 1000.00, 5000.00,banco01);
+        Pessoa pessoa01 = new Pessoa(null, "Fornecedor ABC");
+        CentroCusto centroCusto01 = new CentroCusto(null, "Manutenção");
+        Banco banco01 = new Banco(null, "Banco do Brasil");
+        Conta conta01 = new Conta(null, "Conta Principal", TipoConta.POUPANCA, "1234", "5678-9", 1000.00, 5000.00,banco01);
 
         Lancamento lancamento01 = new Lancamento(
-                0,"Compra de materiais", "1/1", LocalDate.now(), LocalDate.now(), LocalDate.now(), 1500.0, centroCusto01, pessoa01, conta01, TipoLancamento.DEBITO, Situacao.BAIXADO);
+                null,"Compra de materiais", "1/1", LocalDate.now(), LocalDate.now(), LocalDate.now(), 1500.0, centroCusto01, pessoa01, conta01, TipoLancamento.DEBITO, Situacao.BAIXADO);
 
         pessoaRepo.save(pessoa01);
         centroCustoRepo.save(centroCusto01);

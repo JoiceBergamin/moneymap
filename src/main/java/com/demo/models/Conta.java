@@ -16,7 +16,7 @@ public class Conta {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_contas")
-    private int id;
+    private Integer id;
 
     @NotNull @NotBlank
     private String descricao;
@@ -48,7 +48,7 @@ public class Conta {
     public Conta() {
     }
 
-    public Conta(int id, String descricao, TipoConta tipoConta, String agencia, String numero, Double limite, Double saldo, Banco banco) {
+    public Conta(Integer id, String descricao, TipoConta tipoConta, String agencia, String numero, Double limite, Double saldo, Banco banco) {
         this.id = id;
         this.descricao = descricao;
         this.tipoConta = tipoConta;
@@ -63,7 +63,7 @@ public class Conta {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
