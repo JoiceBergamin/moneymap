@@ -1,5 +1,6 @@
 package com.demo.models;
 
+import com.demo.models.dtos.PessoaDTO;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
@@ -29,6 +30,11 @@ public class Pessoa {
     public Pessoa(Integer id, String razaoSocial) {
         this.id = id;
         this.razaoSocial = razaoSocial;
+    }
+
+    public Pessoa (PessoaDTO dto){
+        this.id = dto.getId();
+        this.razaoSocial = dto.getRazaoSocial();
     }
 
     public Integer getId() {

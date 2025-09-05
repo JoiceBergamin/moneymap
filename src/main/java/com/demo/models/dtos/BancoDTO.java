@@ -13,6 +13,7 @@ public class BancoDTO {
     private String razaoSocial;
 
     public BancoDTO() {
+
     }
 
     public BancoDTO(Banco banco) {

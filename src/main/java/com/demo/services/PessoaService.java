@@ -28,4 +28,9 @@ public class PessoaService {
         return obj.orElseThrow(() -> new ObjectNotFoundException("Pessoa não encontrado! Id: " + id));
     }
 
+    public Pessoa create(PessoaDTO dto) {
+        dto.setId(null);
+        Pessoa obj = new Pessoa(dto);
+        return pessoaRepo.save(obj);
+    }
 }

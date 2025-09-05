@@ -31,5 +31,9 @@ public class LancamentoService {
         Optional<Lancamento> obj = lancamentoRepo.findById(id);
         return obj.orElseThrow(() -> new ObjectNotFoundException("Lancamento não encontrado! Id: " + id));
     }
-
+    public Lancamento create(LancamentoDTO dto) {
+        dto.setId(null);
+        Lancamento obj = new Lancamento(dto);
+        return lancamentoRepo.save(obj);
+    }
 }

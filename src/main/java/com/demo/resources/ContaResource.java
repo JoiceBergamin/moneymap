@@ -5,13 +5,13 @@ import com.demo.models.dtos.BancoDTO;
 import com.demo.models.dtos.ContaDTO;
 import com.demo.services.BancoService;
 import com.demo.services.ContaService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import java.net.URI;
 import java.util.List;
 
 @RestController
@@ -29,5 +29,11 @@ public class ContaResource {
     public ResponseEntity<ContaDTO> findById(@PathVariable Integer id) {
         Conta obj = this.contaService.findbyId(id);
         return ResponseEntity.ok().body(new ContaDTO(obj));
+    }
+    @PostMapping
+    public ResponseEntity<ContaDTO> create(@Valid @RequestBody ContaDTO dto){
+        Conta conta = contaService.create(dto);
+        URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(conta.getId()).toUri();
+        return ResponseEntity.created(uri).build();
     }
 }

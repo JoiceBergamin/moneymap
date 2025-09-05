@@ -6,13 +6,13 @@ import com.demo.models.dtos.BancoDTO;
 import com.demo.models.dtos.LancamentoDTO;
 import com.demo.models.dtos.PessoaDTO;
 import com.demo.services.LancamentoService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import java.net.URI;
 import java.util.List;
 
 @RestController
@@ -30,5 +30,11 @@ public class LancamentoResource {
     public ResponseEntity<LancamentoDTO> findById(@PathVariable Integer id) {
         Lancamento obj = this.lancamentoService.findbyId(id);
         return ResponseEntity.ok().body(new LancamentoDTO(obj));
+    }
+    @PostMapping
+    public ResponseEntity<LancamentoDTO> create(@Valid @RequestBody LancamentoDTO dto){
+        Lancamento lancamento = lancamentoService.create(dto);
+        URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(lancamento.getId()).toUri();
+        return ResponseEntity.created(uri).build();
     }
 }

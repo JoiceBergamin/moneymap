@@ -1,5 +1,6 @@
 package com.demo.models;
 
+import com.demo.models.dtos.BancoDTO;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
@@ -32,6 +33,10 @@ public class Banco {
         this.razaoSocial = razaoSocial;
     }
 
+    public Banco(BancoDTO dto){
+        this.id = dto.getId();
+        this.razaoSocial = dto.getRazaoSocial();
+    }
 
     public @NotNull @NotBlank String getRazaoSocial() {
         return razaoSocial;

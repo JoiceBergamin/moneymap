@@ -1,5 +1,6 @@
 package com.demo.models;
 
+import com.demo.models.dtos.LancamentoDTO;
 import com.demo.models.enums.Situacao;
 import com.demo.models.enums.TipoLancamento;
 import com.fasterxml.jackson.annotation.JsonFormat;
@@ -72,6 +73,24 @@ public class Lancamento {
         this.conta = conta;
         this.tipoLancamento = tipoLancamento;
         this.situacao = situacao;
+    }
+
+    public Lancamento(LancamentoDTO dto){
+        this.id = dto.getId();
+        this.descricao = dto.getDescricao();
+        this.parcela = dto.getParcela();
+        this.dataLancamento = dto.getDataLancamento();
+        this.dataVencimento = dto.getDataVencimento();
+        this.dataBaixa = dto.getDataBaixa();
+        this.valorDocumento = dto.getValorDocumento();
+        this.centroCusto = new CentroCusto();
+        this.centroCusto.setId(dto.getCentroCustoId());
+        this.pessoa = new Pessoa();
+        this.pessoa.setId(dto.getPessoaId());
+        this.conta = new Conta();
+        this.conta.setId(dto.getContaId());
+        this.tipoLancamento = dto.getTipoLancamento();
+        this.situacao = dto.getSituacao();
     }
 
     public Integer getId() {

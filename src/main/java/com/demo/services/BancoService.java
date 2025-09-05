@@ -27,4 +27,9 @@ public class BancoService {
         return obj.orElseThrow(()-> new ObjectNotFoundException("Banco não Encontrado! Id: " + id));
     }
 
+    public Banco create(BancoDTO dto) {
+        dto.setId(null);
+        Banco obj = new Banco(dto);
+        return bancoRepo.save(obj);
+    }
 }

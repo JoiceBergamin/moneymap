@@ -1,5 +1,6 @@
 package com.demo.models;
 
+import com.demo.models.dtos.CentroCustoDTO;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
@@ -29,6 +30,11 @@ public class CentroCusto {
     public CentroCusto(Integer id, String descricao) {
         this.id = id;
         this.descricao = descricao;
+    }
+
+    public CentroCusto (CentroCustoDTO dto){
+        this.id = dto.getId();
+        this.descricao = dto.getDescricao();
     }
 
     public Integer getId() {

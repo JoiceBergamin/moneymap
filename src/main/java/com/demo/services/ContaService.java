@@ -26,4 +26,9 @@ public class ContaService {
         return obj.orElseThrow(() -> new ObjectNotFoundException("Conta não encontrado! Id: " + id));
     }
 
+    public Conta create(ContaDTO dto) {
+        dto.setId(null);
+        Conta obj = new Conta(dto);
+        return contaRepo.save(obj);
+    }
 }

@@ -1,5 +1,6 @@
 package com.demo.models;
 
+import com.demo.models.dtos.ContaDTO;
 import com.demo.models.enums.TipoConta;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
@@ -57,6 +58,18 @@ public class Conta {
         this.limite = limite;
         this.saldo = saldo;
         this.banco = banco;
+    }
+
+    public Conta (ContaDTO dto){
+        this.id = dto.getId();
+        this.descricao = dto.getDescricao();
+        this.tipoConta = dto.getTipoConta();
+        this.agencia = dto.getAgencia();
+        this.numero = dto.getNumero();
+        this.limite = dto.getLimite();
+        this.saldo = dto.getSaldo();
+        this.banco = new Banco();
+        this.banco.setId(dto.getBancoId());
     }
 
     public int getId() {
