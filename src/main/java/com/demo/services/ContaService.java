@@ -43,11 +43,25 @@ public class ContaService {
         Optional<Conta> obj = contaRepo.findByNumero(dto.getNumero());
 
         if (obj.isPresent()) {
-            // Se for insert (id == null) OU se for update (id diferente do encontrado)
+
             if (dto.getId() == null || !obj.get().getId().equals(dto.getId())) {
                 throw new DataIntegrityViolationException("Numero de conta já cadastrado!");
             }
         }
+
     }
+    public Conta update(Integer id, ContaDTO objDto){
+        objDto.setId(id);
+        Conta oldObj = findbyId(id);
+        oldObj = new Conta(objDto);
+        return contaRepo.save(oldObj);
+    }
+    public void delete(Integer id) {
+        Conta obj = findbyId(id);
+        if (obj.getLancamentos().size() > 0) {
+            throw new DataIntegrityViolationException("Conta não pode ser deletada pois possui Lançamentos vinculados!");
+        }
+        contaRepo.deleteById(id);
+}
 }
 

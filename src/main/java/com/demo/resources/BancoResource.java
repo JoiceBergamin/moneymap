@@ -35,4 +35,14 @@ public class BancoResource {
         URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(banco.getId()).toUri();
         return ResponseEntity.created(uri).build();
     }
+    @PutMapping(value = "/{id}")
+    public ResponseEntity<BancoDTO> update(@PathVariable Integer id, @Valid @RequestBody BancoDTO objDto) {
+        Banco Obj = bancoService.update(id, objDto);
+        return ResponseEntity.ok().body(new BancoDTO(Obj));
+    }
+    @DeleteMapping(value = "/{id}")
+    public ResponseEntity<BancoDTO> delete(@PathVariable Integer id){
+        bancoService.delete(id);
+        return ResponseEntity.noContent().build();
+    }
 }

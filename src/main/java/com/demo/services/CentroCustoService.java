@@ -3,6 +3,7 @@ package com.demo.services;
 import com.demo.models.CentroCusto;
 import com.demo.models.dtos.CentroCustoDTO;
 import com.demo.repositories.CentroCustoRepository;
+import com.demo.services.exceptions.DataIntegrityViolationException;
 import com.demo.services.exceptions.ObjectNotFoundException;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,4 +38,16 @@ public class CentroCustoService {
         CentroCusto obj = new CentroCusto(dto);
         return centroCustoRepo.save(obj);
     }
-}
+    public CentroCusto update(Integer id, CentroCustoDTO objDto){
+        objDto.setId(id);
+        CentroCusto oldObj = findbyId(id);
+        oldObj = new CentroCusto(objDto);
+        return centroCustoRepo.save(oldObj);
+    }
+    public void delete(Integer id) {
+        CentroCusto obj = findbyId(id);
+        if (obj.getLancamentos().size() > 0) {
+            throw new DataIntegrityViolationException("Centro Custo não pode ser deletado pois possui Lançamentos vinculados!");
+        }
+        centroCustoRepo.deleteById(id);
+}}

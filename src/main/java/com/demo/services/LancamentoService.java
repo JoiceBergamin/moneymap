@@ -36,4 +36,14 @@ public class LancamentoService {
         Lancamento obj = new Lancamento(dto);
         return lancamentoRepo.save(obj);
     }
+    public Lancamento update(Integer id, LancamentoDTO objDto){
+        objDto.setId(id);
+        Lancamento oldObj = findbyId(id);
+        oldObj = new Lancamento(objDto);
+        return lancamentoRepo.save(oldObj);
+    }
+    public void delete(Integer id){
+        Lancamento obj = findbyId(id);
+        lancamentoRepo.deleteById(id);
+    }
 }

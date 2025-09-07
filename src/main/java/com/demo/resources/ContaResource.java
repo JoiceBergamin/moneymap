@@ -41,4 +41,14 @@ public class ContaResource {
         URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(conta.getId()).toUri();
         return ResponseEntity.created(uri).build();
     }
+    @PutMapping(value = "/{id}")
+    public ResponseEntity<ContaDTO> update(@PathVariable Integer id, @Valid @RequestBody ContaDTO objDto) {
+        Conta Obj = contaService.update(id, objDto);
+        return ResponseEntity.ok().body(new ContaDTO(Obj));
+    }
+    @DeleteMapping(value = "/{id}")
+    public ResponseEntity<ContaDTO> delete(@PathVariable Integer id){
+        contaService.delete(id);
+        return ResponseEntity.noContent().build();
+    }
 }

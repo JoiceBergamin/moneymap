@@ -37,4 +37,14 @@ public class LancamentoResource {
         URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(lancamento.getId()).toUri();
         return ResponseEntity.created(uri).build();
     }
+    @PutMapping(value = "/{id}")
+    public ResponseEntity<LancamentoDTO> update(@PathVariable Integer id, @Valid @RequestBody LancamentoDTO objDto) {
+        Lancamento Obj = lancamentoService.update(id, objDto);
+        return ResponseEntity.ok().body(new LancamentoDTO(Obj));
+    }
+    @DeleteMapping(value = "/{id}")
+    public ResponseEntity<LancamentoDTO> delete(@PathVariable Integer id){
+        lancamentoService.delete(id);
+        return ResponseEntity.noContent().build();
+    }
 }

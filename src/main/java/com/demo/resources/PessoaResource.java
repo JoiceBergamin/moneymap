@@ -36,5 +36,15 @@ public class PessoaResource {
         URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(pessoa.getId()).toUri();
         return ResponseEntity.created(uri).build();
     }
+    @PutMapping(value = "/{id}")
+    public ResponseEntity<PessoaDTO> update(@PathVariable Integer id, @Valid @RequestBody PessoaDTO objDto) {
+        Pessoa Obj = pessoaService.update(id, objDto);
+        return ResponseEntity.ok().body(new PessoaDTO(Obj));
+    }
+    @DeleteMapping(value = "/{id}")
+    public ResponseEntity<PessoaDTO> delete(@PathVariable Integer id){
+        pessoaService.delete(id);
+        return ResponseEntity.noContent().build();
+    }
 
 }

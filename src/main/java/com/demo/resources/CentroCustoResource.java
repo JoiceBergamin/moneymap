@@ -38,4 +38,14 @@ public class CentroCustoResource {
         URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(centroCusto.getId()).toUri();
         return ResponseEntity.created(uri).build();
     }
+    @PutMapping(value = "/{id}")
+    public ResponseEntity<CentroCustoDTO> update(@PathVariable Integer id, @Valid @RequestBody CentroCustoDTO objDto) {
+        CentroCusto Obj = centroCustoService.update(id, objDto);
+        return ResponseEntity.ok().body(new CentroCustoDTO(Obj));
+    }
+    @DeleteMapping(value = "/{id}")
+    public ResponseEntity<CentroCustoDTO> delete(@PathVariable Integer id){
+        centroCustoService.delete(id);
+        return ResponseEntity.noContent().build();
+    }
 }

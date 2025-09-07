@@ -4,6 +4,7 @@ import com.demo.models.Pessoa;
 import com.demo.models.dtos.BancoDTO;
 import com.demo.models.dtos.PessoaDTO;
 import com.demo.repositories.PessoaRepository;
+import com.demo.services.exceptions.DataIntegrityViolationException;
 import com.demo.services.exceptions.ObjectNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -33,4 +34,16 @@ public class PessoaService {
         Pessoa obj = new Pessoa(dto);
         return pessoaRepo.save(obj);
     }
-}
+    public Pessoa update(Integer id, PessoaDTO objDto){
+        objDto.setId(id);
+        Pessoa oldObj = findbyId(id);
+        oldObj = new Pessoa(objDto);
+        return pessoaRepo.save(oldObj);
+    }
+    public void delete(Integer id) {
+        Pessoa obj = findbyId(id);
+        if (obj.getLancamentos().size() > 0) {
+            throw new DataIntegrityViolationException("Pessoa não pode ser deletada pois possui Lançamentos vinculados!");
+        }
+        pessoaRepo.deleteById(id);
+}}
