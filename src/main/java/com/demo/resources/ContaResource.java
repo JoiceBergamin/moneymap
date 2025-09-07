@@ -1,9 +1,7 @@
 package com.demo.resources;
 
 import com.demo.models.Conta;
-import com.demo.models.dtos.BancoDTO;
 import com.demo.models.dtos.ContaDTO;
-import com.demo.services.BancoService;
 import com.demo.services.ContaService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,6 +28,13 @@ public class ContaResource {
         Conta obj = this.contaService.findbyId(id);
         return ResponseEntity.ok().body(new ContaDTO(obj));
     }
+
+    @GetMapping(value = "/numero/{numero}")
+        public ResponseEntity<ContaDTO> findById(@PathVariable String numero){
+        Conta obj = this.contaService.findbyNumero(numero);
+        return ResponseEntity.ok().body(new ContaDTO(obj));
+    }
+
     @PostMapping
     public ResponseEntity<ContaDTO> create(@Valid @RequestBody ContaDTO dto){
         Conta conta = contaService.create(dto);

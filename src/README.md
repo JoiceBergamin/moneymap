@@ -25,7 +25,8 @@ Pedro Henrique Esteves
 28/08/2025 - Fizemos as relações entre entidades e conexão com o banco H2
 04/09/2025 - Fizemos as dtos e testamos o armazenamento de dados em banco H2, além de resolver alguns conflitos, também conseguimos iniciar os end-points findAll em todas as entidades e o findById na entidade Banco para teste, pois tambem
 começamos o tratamento de erros
-05/09/2025 - Finalizamos o end-point findById em todas as entidades e testamos no Postman com sucesso, também finalizamos o end-point Create e testamos no Postman, todos com sucesso
+05/09/2025 - Finalizamos o end-point findById em todas as entidades e testamos no Postman com sucesso, também finalizamos o end-point Create e testamos no Postman, todos com sucesso.
+06/09/2025 - Finalizamos alguns tratamentos de erros e validações, análises e correções de código + testes no Postman
 
 ++P.S: Enfrentamos um pequeno problema com o banco h2, embora as conexões tenham sido feitas no application properties, o banco só se conecta com um link gerado no log
 

@@ -30,6 +30,7 @@ public class Conta {
     private String agencia;
 
     @NotNull @NotBlank
+    @Column(unique = true)
     private String numero;
 
     @NotNull
@@ -72,7 +73,7 @@ public class Conta {
         this.banco.setId(dto.getBancoId());
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
