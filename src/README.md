@@ -1,6 +1,6 @@
 
 # MoneyMap
-Welcome to MoneyMap! :3
+Welcome to MoneyMap!
 ## Objetivos
 
 O objetivo principal do aplicativo é construir um software simples de gestão financeira pessoal nas aulas de Laboratório de Programação
