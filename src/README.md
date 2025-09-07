@@ -19,6 +19,8 @@ Joice de Andrade Bergamin
 Pedro Henrique Esteves
 
 [![GitHubs](https://img.shields.io/badge/GitHub-000?style=for-the-badge&logo=ko-fi&logoColor=white)](https://github.com/PedroHrEs)
+[![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/pedrohres23/)
+
 ## Contribuições
 
 26/08/2025 - Estamos na fase inicial do projeto por enquanto, entendendo melhor o que faremos em cada parte, até o momento já foram criadas as entidades e enums do projeto, já adicionando anotações na mesma para facilitar o processo
@@ -27,8 +29,9 @@ Pedro Henrique Esteves
 começamos o tratamento de erros.
 05/09/2025 - Finalizamos o end-point findById em todas as entidades e testamos no Postman com sucesso, também finalizamos o end-point Create e testamos no Postman, todos com sucesso.
 06/09/2025 - Finalizamos alguns tratamentos de erros e validações, análises e correções de código + testes no Postman, também finalizamos os últimos dois end-points (update e delete) + testes no Postman com sucesso.
+07/09/2025 - Finalizamos a parte de segurança com spring security e documentamos utilizando o swagger, finalizando o trabalho até o presente momento.
 
-++P.S: Enfrentamos um pequeno problema com o banco h2, embora as conexões tenham sido feitas no application properties, o banco só se conecta com um link gerado no log
+++P.S: Enfrentamos um pequeno problema com o banco h2, embora as conexões tenham sido feitas no application properties, o banco só se conecta com um link gerado no log.
 
 ## Considerações Finais
 
